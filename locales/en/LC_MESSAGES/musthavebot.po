@@ -1,0 +1,172 @@
+# English translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-11-26 20:00+0500\n"
+"PO-Revision-Date: 2020-11-26 20:03+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: admin_panel.py:14
+msgid "You canceled your order"
+msgstr ""
+
+#: admin_panel.py:20
+msgid "Enter the item's name or press /cancel"
+msgstr ""
+
+#: admin_panel.py:29
+msgid ""
+"Name: {name}\n"
+"Send me the photo or press /cancel"
+msgstr ""
+
+#: admin_panel.py:45
+msgid ""
+"Name: {name}\n"
+" Send me the price of the product or press /cancel"
+msgstr ""
+
+#: admin_panel.py:61
+msgid "Invalid input, enter a number"
+msgstr ""
+
+#: admin_panel.py:68
+msgid "Yes"
+msgstr ""
+
+#: admin_panel.py:71
+msgid "Enter Again"
+msgstr ""
+
+#: admin_panel.py:77
+msgid ""
+"Price: {price:,}\n"
+"Confirm? Press /cancel to cancel"
+msgstr ""
+
+#: admin_panel.py:92
+msgid "Enter the price again"
+msgstr ""
+
+#: admin_panel.py:104
+msgid "The product was successfully created."
+msgstr ""
+
+#: admin_panel.py:110
+msgid "Send the text of mailing"
+msgstr ""
+
+#: admin_panel.py:133
+msgid ""
+"Choose a language\n"
+"\n"
+"Text:\n"
+"{text}"
+msgstr ""
+
+#: admin_panel.py:155
+msgid "Mailing Completed"
+msgstr ""
+
+#: handlers/users/main_handlers.py:45
+msgid ""
+"Greetings!\n"
+"There are {count_users} users right now in our DB\n"
+"\n"
+"Your referral link: {bot_link}\n"
+"Check your referrals by pressing /referrals\n"
+"View items: /items"
+msgstr ""
+
+#: handlers/users/main_handlers.py:55
+msgid ""
+"\n"
+"Add new item: /add_item"
+msgstr ""
+
+#: handlers/users/main_handlers.py:66
+msgid "Your language has been changed"
+msgstr ""
+
+#: handlers/users/main_handlers.py:72
+msgid ""
+"Your referrals:\n"
+"{referrals}"
+msgstr ""
+
+#: handlers/users/main_handlers.py:80
+msgid ""
+"<b>Item:</b \t№{id}: <u>{name}</u>\n"
+"<b>Price:</b> \t{price:,}\n"
+msgstr ""
+
+#: handlers/users/main_handlers.py:87
+msgid "Buy"
+msgstr ""
+
+#: handlers/users/main_handlers.py:110
+msgid "This item doesnt exists"
+msgstr ""
+
+#: handlers/users/main_handlers.py:113
+msgid ""
+"Do you want to but item \"<b>{name}{/b}\" with the price <i>{price:,}</i>"
+"\n"
+"Enter the quantity of the item you would like to buy or press cancel"
+msgstr ""
+
+#: handlers/users/main_handlers.py:141
+msgid "Agree"
+msgstr ""
+
+#: handlers/users/main_handlers.py:145
+msgid "Change the quantity"
+msgstr ""
+
+#: handlers/users/main_handlers.py:149
+msgid "Cancel purchase"
+msgstr ""
+
+#: handlers/users/main_handlers.py:162
+msgid ""
+"Okay, you want to buy <i>{quantity}</i> {name} with price "
+"<b>{price:,}</b>\n"
+"Total price: <b>{amount:,}</b>. Confirm?"
+msgstr ""
+
+#: handlers/users/main_handlers.py:177
+msgid "Wrong Input, enter a number"
+msgstr ""
+
+#: handlers/users/main_handlers.py:183
+msgid "Purchase Canceled."
+msgstr ""
+
+#: handlers/users/main_handlers.py:190
+msgid "Enter the quantity again."
+msgstr ""
+
+#: handlers/users/main_handlers.py:203
+msgid "Okay, pay <b>{amount:,}</b> by the method below and press the button below"
+msgstr ""
+
+#: handlers/users/main_handlers.py:249
+msgid "Thank you for your purchase"
+msgstr ""
+
+#: handlers/users/main_handlers.py:252
+msgid "Purchase failed, try again later.."
+msgstr ""
+

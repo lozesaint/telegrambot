@@ -3,7 +3,7 @@ from typing import Tuple, Any
 from aiogram import types
 from aiogram.contrib.middlewares.i18n import I18nMiddleware
 from data.config import I18N_DOMAIN, LOCALES_DIR
-from utils.db_api.database import DBCommands
+from utils.db_api.db_commands import DBCommands
 
 db = DBCommands()
 

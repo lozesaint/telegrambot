@@ -6,7 +6,7 @@ from aiogram.dispatcher import FSMContext
 from data.config import admins
 from loader import dp, _, bot
 from states.states import NewItem, Mailing
-from utils.db_api.database import Item, User
+from utils.db_api.models import Item, User
 
 
 @dp.message_handler(user_id=admins, commands=["cancel"], state=NewItem)
@@ -94,7 +94,7 @@ async def change_price(call: types.CallbackQuery):
 
 
 @dp.callback_query_handler(user_id=admins,
-                           text_contains="comfirm",
+                           text_contains="confirm",
                            state=NewItem.Confirm)
 async def confirm(call: types.CallbackQuery, state: FSMContext):
     await call.message.edit_reply_markup()

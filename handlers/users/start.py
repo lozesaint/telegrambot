@@ -1,70 +1,118 @@
 import re
 
+from states import states
 from geopy.geocoders import Nominatim
 
 from aiogram import types
-from aiogram.dispatcher.storage import FSMContext
 from aiogram.dispatcher.filters.builtin import CommandStart
-from aiogram.types import CallbackQuery, ReplyKeyboardRemove
+from aiogram.types import CallbackQuery, Message
 
-from keyboards.default import location_keyboard, contact_keyboard, menu_keyboard, catalog_keyboard, language_keyboard
-from loader import dp
-from states import QuestionsOnStart
-from utils.misc import rate_limit
+from keyboards.default import menu_keyboard
+from utils.db_api import db_commands
 
-from utils.db_api import quick_commands as commands
+from loader import dp, _, bot
+
+from data.config import admins
 
 
-@rate_limit(3)
+db = db_commands.DBCommands()
+
+
 @dp.message_handler(CommandStart())
-async def bot_start(message: types.Message):
-    await message.answer("Welcome to <b>MustHave Official's</b> Bot!\n\n"
-                         "Choose your preferred language",
-                         reply_markup=language_keyboard)
+async def register_user(message: Message):
+    chat_id = message.from_user.id
+    referral = message.get_args()
+    user = await db.add_new_user(referral=referral)
+    id = user.id
+    bot_username = (await bot.me).username
+    bot_link = f"https://t.me/{bot_username}?start={id}"
+    count_users = await db.count_users()
 
-    await QuestionsOnStart.users_pref_language.set()
+    languages_markup = types.InlineKeyboardMarkup(
+        inline_keyboard=[
+            [types.InlineKeyboardButton(
+                text="English",
+                callback_data="lang_en")],
+            [types.InlineKeyboardButton(
+                text="Русский",
+                callback_data="lang_ru")],
+            [types.InlineKeyboardButton(
+                text="O'zbek tili",
+                callback_data="lang_uz")]
+        ]
+    )
+
+    text = """
+Здраствуйте! Для начала выберите удобный вам язык!\n\n
+Salom! Avvalam sizga qulay tilni tallang!\n\n
+Hello there! First of all, choose a comfortable language!\n\n
+    """
+    if chat_id == admins:
+        text += _("\n\n"
+                  "Add new item: /add_item\n"
+                  "There are {count_users} users in the DB right now.").format(count_users=count_users)
+
+    await message.answer(text, reply_markup=languages_markup)
 
 
-@dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="En")
-async def choosing_en(message: types.Message, state: FSMContext):
-    await state.update_data(users_pref_language="en")
-    await message.answer(text="You chose English", reply_markup=ReplyKeyboardRemove())
-    data = await state.get_data()
-    lang = data.get("users_pref_language")
-
-    await commands.add_user(id=message.from_user.id,
-                            name=message.from_user.full_name,
-                            lang=lang)
-
-    await state.reset_state(with_data=False)
+@dp.callback_query_handler(text_contains="lang")
+async def change_language(call: CallbackQuery):
+    await call.message.edit_reply_markup()
+    lang = call.data[-2:]
+    await db.set_language(lang)
+    await call.message.answer(_("Great! Get started by pressing /menu", locale=lang))
 
 
-@dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="Ру")
-async def choosing_ru(message: types.Message, state: FSMContext):
-    await state.update_data(users_pref_language="ru")
-    await message.answer(text="You chose Russian", reply_markup=ReplyKeyboardRemove())
-    data = await state.get_data()
-    lang = data.get("users_pref_language")
-
-    await commands.add_user(id=message.from_user.id,
-                            name=message.from_user.full_name,
-                            lang=lang)
-
-    await state.reset_state(with_data=False)
-
-
-@dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="O'z")
-async def choosing_uz(message: types.Message, state: FSMContext):
-    await state.update_data(users_pref_language="uz")
-    await message.answer(text="You chose Uzbek", reply_markup=ReplyKeyboardRemove())
-    data = await state.get_data()
-    lang = data.get("users_pref_language")
-
-    await commands.add_user(id=message.from_user.id,
-                            name=message.from_user.full_name,
-                            lang=lang)
-
-    await state.reset_state(with_data=False)
+# @rate_limit(3)
+# @dp.message_handler(CommandStart())
+# async def bot_start(message: types.Message):
+#     await message.answer("Welcome to <b>MustHave Official's</b> Bot!\n\n"
+#                          "Choose your preferred language",
+#                          reply_markup=language_keyboard)
+#
+#     await QuestionsOnStart.users_pref_language.set()
+#
+#
+# @dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="En")
+# async def choosing_en(message: types.Message, state: FSMContext):
+#     await state.update_data(users_pref_language="en")
+#     await message.answer(text="You chose English", reply_markup=ReplyKeyboardRemove())
+#     data = await state.get_data()
+#     lang = data.get("users_pref_language")
+#
+#     await commands.add_user(id=message.from_user.id,
+#                             name=message.from_user.full_name,
+#                             lang=lang)
+#
+#     await state.reset_state(with_data=False)
+#
+#
+# @dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="Ру")
+# async def choosing_ru(message: types.Message, state: FSMContext):
+#     await state.update_data(users_pref_language="ru")
+#     await message.answer(text="You chose Russian", reply_markup=ReplyKeyboardRemove())
+#     data = await state.get_data()
+#     lang = data.get("users_pref_language")
+#
+#     await commands.add_user(id=message.from_user.id,
+#                             name=message.from_user.full_name,
+#                             lang=lang)
+#
+#     await state.reset_state(with_data=False)
+#
+#
+# @dp.message_handler(state=QuestionsOnStart.users_pref_language, text_contains="O'z")
+# async def choosing_uz(message: types.Message, state: FSMContext):
+#     await state.update_data(users_pref_language="uz")
+#     await message.answer(text="You chose Uzbek", reply_markup=ReplyKeyboardRemove())
+#     data = await state.get_data()
+#     lang = data.get("users_pref_language")
+#
+#     await commands.add_user(id=message.from_user.id,
+#                             name=message.from_user.full_name,
+#                             lang=lang)
+#
+#     await state.reset_state(with_data=False)
 
 
 # @dp.message_handler(text_contains="Catalog")

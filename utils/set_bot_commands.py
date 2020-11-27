@@ -6,5 +6,4 @@ async def set_default_commands(dp):
         types.BotCommand("start", "Start MustHave Official's Bot"),
         types.BotCommand("help", "Show Available Commands"),
         types.BotCommand("menu", "Show Main Menu"),
-        types.BotCommand("email", "Show Email Menu"),
     ])

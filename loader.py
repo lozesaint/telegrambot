@@ -3,7 +3,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from middlewares.language_middleware import setup_middleware
 
 from data import config
-from utils.db_api.db_gino import db
+from utils.db_api.database import db
 
 bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 storage = MemoryStorage()

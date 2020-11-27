@@ -1,66 +1,69 @@
+from typing import Union
+
 from aiogram import types
-
 from aiogram.dispatcher.filters import Command
-from aiogram.types import ReplyKeyboardRemove
+from aiogram.types import Message, CallbackQuery
 
-from keyboards.default import menu_keyboard, catalog_keyboard
+from keyboards.inline.menu_keyboards import categories_keyboard, subcategories_keyboard, items_keyboard, item_keyboard, menu_cd
 from loader import dp
+from utils.db_api.db_commands import get_item
 
 
-@dp.message_handler(Command("menu"), content_types="text")
+@dp.message_handler(Command("menu"))
 async def show_menu(message: types.Message):
-    await message.answer("Choose something from below: ", reply_markup=menu_keyboard)
+    await list_categories(message)
 
 
-@dp.message_handler(text_contains="Catalog")
-async def show_catalog(message: types.Message):
-    await message.answer("Let us get started", reply_markup=catalog_keyboard)
+async def list_categories(message: Union[CallbackQuery, Message], **kwargs):
+    markup = await categories_keyboard()
 
-    @dp.message_handler(text_contains="Trending")
-    async def show_catalog_trending(message: types.Message):
-        await message.answer("You chose Catalog -> Trending")
+    if isinstance(message, types.Message):
+        await message.answer("Here's what we got",
+                             reply_markup=markup)
 
-    @dp.message_handler(text_contains="Tops")
-    async def show_catalog_tops(message: types.Message):
-        await message.answer("You chose Catalog -> Tops")
-
-    @dp.message_handler(text_contains="Bottoms")
-    async def show_catalog_bottoms(message: types.Message):
-        await message.answer("You chose Catalog -> Bottoms")
-
-    @dp.message_handler(text_contains="Dresses")
-    async def show_catalog_dresses(message: types.Message):
-        await message.answer("You chose Catalog -> Dresses")
-
-    @dp.message_handler(text_contains="Shoes")
-    async def show_catalog_shoes(message: types.Message):
-        await message.answer("You chose Catalog -> Shoes")
-
-    @dp.message_handler(text_contains="Outwear")
-    async def show_catalog_outwear(message: types.Message):
-        await message.answer("You chose Catalog -> Outwear")
-
-    @dp.message_handler(text_contains="Brand")
-    async def show_catalog_brand(message: types.Message):
-        await message.answer("You chose Catalog -> Brands")
+    elif isinstance(message, types.CallbackQuery):
+        call = message
+        await call.message.edit_reply_markup(markup)
 
 
-@dp.message_handler(text_contains="Feedback")
-async def show_feedback(message: types.Message):
-    await message.answer("You chose Feedback")
+async def list_subcategories(callback: types.CallbackQuery, category, **kwargs):
+    markup = await subcategories_keyboard(category)
+    await callback.message.edit_reply_markup(markup)
 
 
-@dp.message_handler(text_contains="About")
-async def show_about(message: types.Message):
-    await message.answer("You chose About")
+async def list_items(callback: types.CallbackQuery, category, subcategory, **kwargs):
+    markup = await items_keyboard(category=category, subcategory=subcategory)
+    await callback.message.edit_text("Here's what we got", reply_markup=markup)
 
 
-@dp.message_handler(text_contains="Cart")
-async def show_cart(message: types.Message):
-    await message.answer("You chose Cart")
+async def show_item(callback: types.CallbackQuery, category, subcategory, item_id):
+    markup = item_keyboard(category, subcategory, item_id)
+
+    item = await get_item(item_id)
+    text = f"Buy {item}"
+
+    await callback.message.edit_text(text, reply_markup=markup)
 
 
-@dp.message_handler(text_contains="Settings")
-async def show_settings(message: types.Message):
-    await message.answer("You chose Settings")
+@dp.callback_query_handler(menu_cd.filter())
+async def navigate(call: types.CallbackQuery, callback_data: dict):
+    current_level = callback_data.get("level")
+    category = callback_data.get("category")
+    subcategory = callback_data.get("subcategory")
+    item_id = callback_data.get("item_id")
 
+    levels = {
+        "0": list_categories,
+        "1": list_subcategories,
+        "2": list_items,
+        "3": show_item
+    }
+
+    current_level_function = levels[current_level]
+
+    await current_level_function(
+        call,
+        category=category,
+        subcategory=subcategory,
+        item_id=item_id
+    )

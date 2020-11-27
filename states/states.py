@@ -17,3 +17,7 @@ class NewItem(StatesGroup):
 class Mailing(StatesGroup):
     Text = State()
     Language = State()
+
+
+class Menu(StatesGroup):
+    Main_Menu = State()

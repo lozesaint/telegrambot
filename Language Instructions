@@ -1,0 +1,21 @@
+Название - musthavebot, можете сменить на любое другое
+
+Запускаем первый раз
+1. Вытаскиваем тексты из файлов (он сам находит)
+pybabel extract . -o locales/musthavebot.pot
+2. Создаем папку для перевода на английский
+pybabel init -i locales/musthavebot.pot -d locales -D musthavebot -l en
+3. То же, на русский
+pybabel init -i locales/musthavebot.pot -d locales -D musthavebot -l ru
+4. То же, на узбекский
+pybabel init -i locales/musthavebot.pot -d locales -D musthavebot -l uz
+5. Переводим, а потом собираем переводы
+pybabel compile -d locales -D musthavebot
+
+
+Обновляем переводы
+1. Вытаскиваем тексты из файлов, Добавляем текст в переведенные версии
+pybabel extract . -o locales/musthavebot.pot
+pybabel update -d locales -D musthavebot -i locales/musthavebot.pot
+3. Вручную делаем переводы, а потом Собираем
+pybabel compile -d locales -D musthavebot

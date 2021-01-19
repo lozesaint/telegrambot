@@ -1,13 +1,20 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from loader import _
 
 
-location_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text="📍 Share Current Location",
-                           request_location=True)
-        ]
-    ],
-    resize_keyboard=True,
-    one_time_keyboard=True,
-)
+def get_location_keyboard(lang):
+    location_keyboard = ReplyKeyboardMarkup(
+        keyboard=[
+            [
+                KeyboardButton(text=_("📍 Share Current Location", locale=lang),
+                               request_location=True)
+            ],
+            [
+                KeyboardButton(text=_("✖️ Cancel", locale=lang))
+            ]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True,
+    )
+
+    return location_keyboard

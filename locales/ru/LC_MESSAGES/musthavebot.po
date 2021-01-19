@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-26 20:00+0500\n"
+"POT-Creation-Date: 2020-12-23 20:02+0500\n"
 "PO-Revision-Date: 2020-11-26 20:03+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,183 +19,371 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: admin_panel.py:14
-msgid "You canceled your order"
-msgstr "Вы отменили заказ"
-
-#: admin_panel.py:20
-msgid "Enter the item's name or press /cancel"
-msgstr "Введите название товара или нажмите /cancel"
-
-#: admin_panel.py:29
+#: handlers/category_menu.py:78
 msgid ""
-"Name: {name}\n"
-"Send me the photo or press /cancel"
-msgstr ""
-"Название: {name}\n"
-"Пришлите фото товара или нажмите /cancel"
-
-#: admin_panel.py:45
-msgid ""
-"Name: {name}\n"
-" Send me the price of the product or press /cancel"
-msgstr ""
-"Название: {name}\n"
-"Введите стоимость товара или нажите /cancel"
-
-#: admin_panel.py:61
-msgid "Invalid input, enter a number"
-msgstr "Неверное значение, введите число"
-
-#: admin_panel.py:68
-msgid "Yes"
-msgstr "Да"
-
-#: admin_panel.py:71
-msgid "Enter Again"
-msgstr "Введите заново"
-
-#: admin_panel.py:77
-msgid ""
-"Price: {price:,}\n"
-"Confirm? Press /cancel to cancel"
-msgstr ""
-"Цена: {price:,}\n"
-"Потверждаете? Нажмите /cancel чтобы отменнить"
-
-#: admin_panel.py:92
-msgid "Enter the price again"
-msgstr "Введите цену заново"
-
-#: admin_panel.py:104
-msgid "The product was successfully created."
-msgstr "Товар был успешно создан"
-
-#: admin_panel.py:110
-msgid "Send the text of mailing"
-msgstr "Введите текст рассылки"
-
-#: admin_panel.py:133
-msgid ""
-"Choose a language\n"
+"<b>{name}</b>\n"
 "\n"
-"Text:\n"
-"{text}"
-msgstr ""
-"Выберите язык:\n"
+"<b>Price:</b> {price} UZS \n"
+"<b>Sizes:</b> {available_sizes} \n"
 "\n"
-"Текст:\n"
-"{text}"
+"For all related questions text @g_continent\n"
+"\n"
+msgstr ""
+"<b>{name}</b>\n"
+"\n"
+"<b>Цена:</b> {price} UZS \n"
+"<b>Размеры:</b> {available_sizes} \n"
+"\n"
+"По всем вопросам: @g_continent\n"
+"\n"
 
-#: admin_panel.py:155
-msgid "Mailing Completed"
-msgstr "Рассылка завершена"
+#: handlers/category_menu.py:166
+msgid "Product with same size already exists in the cart"
+msgstr "Продукт с идентичным размерам уже существует в корзине"
 
-#: handlers/users/main_handlers.py:45
+#: handlers/category_menu.py:211
+msgid "Item's number should be greater than 0"
+msgstr "Количество товара должно быть больше 0"
+
+#: handlers/category_menu.py:215
+msgid "Item has been added to cart"
+msgstr "Товар был добавлен в корзину"
+
+#: handlers/category_menu.py:239
+msgid "Your cart is empty"
+msgstr "Корзина пуста"
+
+#: handlers/category_menu.py:244
 msgid ""
-"Greetings!\n"
-"There are {count_users} users right now in our DB\n"
+"<i>Your Cart:</i>\n"
 "\n"
-"Your referral link: {bot_link}\n"
-"Check your referrals by pressing /referrals\n"
-"View items: /items"
 msgstr ""
-"Приветствую!\n"
-"Сейчас в базе {count_users} пользоваетелей\n"
+"<i>Ваша корзина:</i>\n"
 "\n"
-"Ваша реферальная ссылка: {bot_link}\n"
-"Проверьте ваших рефералов, нажав /referrals\n"
-"Посмотреть товары: /items"
 
-#: handlers/users/main_handlers.py:55
+#: handlers/category_menu.py:251
+msgid "<b>{index}.</b> {name} - <b>{size}</b>\n"
+msgstr ""
+
+#: handlers/category_menu.py:255
+msgid "<b>Total</b>: {total} UZS"
+msgstr "<b>Итого</b>: {total} UZS"
+
+#: handlers/category_menu.py:281 handlers/category_menu.py:292
+msgid "Categories Menu:"
+msgstr "Меню Категорий"
+
+#: handlers/category_menu.py:306
+msgid "Leave your contact number so we can contact you regarding your order"
+msgstr ""
+"Отправьте свои контактные данные, чтобы наши операторы могли связаться с "
+"вами по поводу заказа"
+
+#: handlers/category_menu.py:317 handlers/category_menu.py:327
+msgid "Share your current location for the shipping address"
+msgstr "Отправьте вашу текущую локацию для адреса доставки"
+
+#: handlers/category_menu.py:345 handlers/category_menu.py:506
+msgid "<i>Order cancelled</i>"
+msgstr "<i>Заказ отменен</i>"
+
+#: handlers/category_menu.py:352
 msgid ""
+"Select payment method\n"
 "\n"
-"Add new item: /add_item"
+"<i>*Delivery fee not included</i>"
 msgstr ""
+"Выберите способ оплаты\n"
 "\n"
-"Добавить новый товар: /add_item"
+"<i>*Стоимость доставки не учитывается</i>"
 
-#: handlers/users/main_handlers.py:66
-msgid "Your language has been changed"
-msgstr "Ваш язык был изменен"
-
-#: handlers/users/main_handlers.py:72
+#: handlers/category_menu.py:386
 msgid ""
-"Your referrals:\n"
-"{referrals}"
+"<i>Thank you, your order has been submitted for processing! Our operators"
+" will contact you shortly</i>"
 msgstr ""
-"Ваши рефералы:\n"
-"{referrals}"
+"<i>Спасибо, ваш заказ был переден на обработку! Наши операторы в скором "
+"времени свяжутся с вами</i>"
 
-#: handlers/users/main_handlers.py:80
+#: handlers/category_menu.py:409
 msgid ""
-"<b>Item:</b \t№{id}: <u>{name}</u>\n"
-"<b>Price:</b> \t{price:,}\n"
-msgstr ""
-"<b>Товар:</b \t№{id}: <u>{name}</u>\n"
-"<b>Цена:</b> \t{price:,}\n"
-
-#: handlers/users/main_handlers.py:87
-msgid "Buy"
-msgstr "Купить"
-
-#: handlers/users/main_handlers.py:110
-msgid "This item doesnt exists"
-msgstr "Этот товар не существует"
-
-#: handlers/users/main_handlers.py:113
-msgid ""
-"Do you want to but item \"<b>{name}{/b}\" with the price <i>{price:,}</i>"
+"<b>Order Number</b>: #N{order_id}\n"
 "\n"
-"Enter the quantity of the item you would like to buy or press cancel"
+"Credit card number for transferring:\n"
+"<b>8600 3129 4618 7313</b>"
 msgstr ""
-"Вы хотите купитьт товар \"<b>{name}{/b}\" по цене <i>{price:,}</i>"
+"<b>Номер заказа</b>: #N{order_id}\n"
 "\n"
-"Введите количество товара или нажмите /cancel"
+"Номер кредитной карты для перевода средств:\n"
+"<b>8600 3129 4618 7313</b>"
 
-#: handlers/users/main_handlers.py:141
-msgid "Agree"
-msgstr "Согласен(на)"
-
-#: handlers/users/main_handlers.py:145
-msgid "Change the quantity"
-msgstr "Поменять количество"
-
-#: handlers/users/main_handlers.py:149
-msgid "Cancel purchase"
-msgstr "Отменить заказ"
-
-#: handlers/users/main_handlers.py:162
+#: handlers/category_menu.py:413
 msgid ""
-"Okay, you want to buy <i>{quantity}</i> {name} with price "
-"<b>{price:,}</b>\n"
-"Total price: <b>{amount:,}</b>. Confirm?"
+"<b>Order Number</b>: #N{order_id}\n"
+"\n"
+"Your order has been confirmed."
 msgstr ""
-"Хорошо, вы хотите купить <i>{quantity}</i> {name} по цене "
-"<b>{price:,}</b>\n"
-"Общая стоимость: <b>{amount:,}</b>. Потверждаете?"
+"<b>Номер заказа</b>: #N{order_id}\n"
+"\n"
+"Ваш заказ был потвержден."
 
-#: handlers/users/main_handlers.py:177
-msgid "Wrong Input, enter a number"
-msgstr "Неверное значение, введите число"
+#: handlers/category_menu.py:423
+msgid "<b>Your order has been cancelled</b>"
+msgstr "<b>Ваш заказ был отменен</b>"
 
-#: handlers/users/main_handlers.py:183
-msgid "Purchase Canceled."
-msgstr "Покупка отменена"
+#: handlers/category_menu.py:440
+msgid "<b>Your payment has been approved</b>"
+msgstr "<b>Транзакция была потверждена</b>"
 
-#: handlers/users/main_handlers.py:190
-msgid "Enter the quantity again."
-msgstr "Введите количество заново"
+#: handlers/users/main_menu.py:48 handlers/users/main_menu.py:50
+msgid "Main Menu"
+msgstr "Главное Меню"
 
-#: handlers/users/main_handlers.py:203
-msgid "Okay, pay <b>{amount:,}</b> by the method below and press the button below"
-msgstr "Хорошо, оплатите <b>{amount:,}</b>, нажав на кнопку ниже"
+#: handlers/users/main_menu.py:64
+msgid "Great! Where do we start?"
+msgstr "Супер! С чего же начнем?"
 
-#: handlers/users/main_handlers.py:249
-msgid "Thank you for your purchase"
-msgstr "Спасибо за покупку!"
+#: handlers/users/main_menu.py:66
+msgid "Categories Menu"
+msgstr "Меню Категорий"
 
-#: handlers/users/main_handlers.py:252
-msgid "Purchase failed, try again later.."
-msgstr "Покупка не удалась, попробуйте позже"
+#: handlers/users/main_menu.py:76
+msgid "Available commands:\n"
+msgstr "Доступные команды:\n"
+
+#: handlers/users/main_menu.py:77
+msgid "/start - Start the <b>MustHave Official's</b> Bot"
+msgstr "/start - Запустить бот магазина <b>MustHave</b>"
+
+#: handlers/users/main_menu.py:78
+msgid "/menu - Main Menu"
+msgstr "/menu - Главное Меню"
+
+#: handlers/users/main_menu.py:95
+msgid "What do you want to know about us?"
+msgstr "Что бы вы хотели узнать о нас?"
+
+#: handlers/users/main_menu.py:104
+msgid ""
+"We will be thankful if you will help our services improve!\n"
+"Leave your feedback or rate us on a 5-point scale!"
+msgstr ""
+"Мы будем благодарны, если вы поможете в улучшении нашего сервиса!\n"
+"Оставьте ваш отзыв или оцените нас по 5-балльной шкале!"
+
+#: handlers/users/main_menu.py:114
+msgid "Settings Menu:"
+msgstr "Меню Настроек:"
+
+#: handlers/users/main_menu.py:126
+msgid ""
+"Location information:\n"
+"\n"
+"<b>📍 Address:</b> Tashkent, Mirabad District, Avliyoota Street, 2\n"
+"\n"
+"<b>🗺 Reference Point:</b> Mirabad (Hospital) Bazaar, near to \"Мисс "
+"Камилла\" wedding salon. Store \"Molly\"\n"
+"\n"
+"<b>🕓 We work 7 days a week </b>\n"
+"\n"
+"<b>💸 Payment Methods:</b>\n"
+"1. Cash\n"
+"2. Click\n"
+"3. PayMe\n"
+"4. Apelsin"
+msgstr ""
+"Инофрмация о локации:\n"
+"\n"
+"<b>📍 Адрес:</b> Ташкент, Мирабадский Район, ул. Avliyoota, 2\n"
+"\n"
+"<b>🗺 Ориентир:</b> Мирабадский (Госпитальный) Базар, рядом со свадебным "
+"салоном \"Мисс Камилла\". Магазин \"Molly\"\n"
+"\n"
+"<b>🕓 Мы работаем без выходных</b>\n"
+"\n"
+"<b>💸 Способы оплаты:</b>\n"
+"1. Наличные\n"
+"2. Click\n"
+"3. PayMe\n"
+"4. Apelsin"
+
+#: handlers/users/main_menu.py:143
+msgid ""
+"Contact information:\n"
+"\n"
+"📞 Phone Number #1\n"
+"+998(99) 842-67-09\n"
+"\n"
+"📞 Phone Number #2\n"
+"+998(97) 768-68-49\n"
+"\n"
+"<b>📲 Telegram:</b> \n"
+"@musthaveuzb\n"
+"\n"
+"<b>📲 Instagram:</b> \n"
+"https://www.instagram.com/musthave.uz/"
+msgstr ""
+"Контактные данные:\n"
+"\n"
+"📞 Номер #1\n"
+"+998(99) 842-67-09\n"
+"\n"
+"📞 Номер #2\n"
+"+998(97) 768-68-49\n"
+"\n"
+"<b>📲 Телеграм:</b> \n"
+"@musthaveuzb\n"
+"\n"
+"<b>📲 Инстаграм:</b> \n"
+"https://www.instagram.com/musthave.uz/"
+
+#: handlers/users/main_menu.py:157
+msgid "Thank you for your response!"
+msgstr "Спасибо за вашу помощь!"
+
+#: handlers/users/main_menu.py:166 keyboards/default/about_keyboard.py:15
+#: keyboards/default/contact_keybaord.py:13
+#: keyboards/default/feedback_keyboard.py:24
+#: keyboards/default/language_keyboard.py:18
+#: keyboards/default/settings_keyboard.py:18
+#: keyboards/inline/cart_keyboard.py:20
+#: keyboards/inline/categories_keyboard.py:51
+#: keyboards/inline/quantity_keyboard.py:22
+#: keyboards/inline/size_keyboard.py:29
+msgid "🔙 Back"
+msgstr "🔙 Назад"
+
+#: handlers/users/main_menu.py:169
+msgid "Enter your new name"
+msgstr "Введите ваше новое имя"
+
+#: handlers/users/main_menu.py:178
+msgid "Your name has been changed!"
+msgstr "Ваше имя было изменено!"
+
+#: handlers/users/main_menu.py:187
+msgid "Enter your new phone number"
+msgstr "Введите ваш новый номер телефона"
+
+#: handlers/users/main_menu.py:196 handlers/users/main_menu.py:206
+msgid "Your phone number has been changed!"
+msgstr "Ваш номер телефона был изменен!"
+
+#: handlers/users/main_menu.py:215
+msgid "Choose the language"
+msgstr "Выберите язык"
+
+#: handlers/users/main_menu.py:223 handlers/users/main_menu.py:231
+#: handlers/users/main_menu.py:239
+msgid "Great! Your language has been changed"
+msgstr "Отлично! Ваш язык был изменен"
+
+#: handlers/users/start.py:71
+msgid "Thank you! Here's our Main Menu"
+msgstr "Спасибо! Вот наше Главное Меню"
+
+#: keyboards/default/about_keyboard.py:9
+msgid "📍 Shop's Location"
+msgstr "📍 Локация Магазина"
+
+#: keyboards/default/about_keyboard.py:12
+msgid "📱 Contacts"
+msgstr "📱 Контакты"
+
+#: keyboards/default/contact_keybaord.py:9
+msgid "📱 Share Phone Number"
+msgstr "📱 Поделиться Номером Телефона"
+
+#: keyboards/default/location_keyboard.py:7
+msgid "📍 Share Current Location"
+msgstr "📍 Поделиться текущей локацией"
+
+#: keyboards/default/location_keyboard.py:11
+msgid "✖️ Cancel"
+msgstr "✖️ Отменить"
+
+#: keyboards/default/menu_keyboards.py:11
+msgid "🛍 Shop"
+msgstr "🛍 Магазин"
+
+#: keyboards/default/menu_keyboards.py:14
+msgid "🗣 Feedback"
+msgstr "🗣 Обратная связь"
+
+#: keyboards/default/menu_keyboards.py:15
+msgid "ℹ About"
+msgstr "ℹ О Нас"
+
+#: keyboards/default/menu_keyboards.py:18
+msgid "❗ Help"
+msgstr "❗ Помощь"
+
+#: keyboards/default/menu_keyboards.py:19
+msgid "⚙ Settings"
+msgstr "⚙ Настройки"
+
+#: keyboards/default/settings_keyboard.py:9
+msgid "🔄 Change Language"
+msgstr "🔄 Сменить Язык"
+
+#: keyboards/default/settings_keyboard.py:12
+msgid "✍️ Edit Name"
+msgstr "✍️ Изменить Имя"
+
+#: keyboards/default/settings_keyboard.py:15
+msgid "✍️ Edit Phone Number"
+msgstr "✍️ Изменить Номер Телефона"
+
+#: keyboards/inline/cart_keyboard.py:18
+msgid "🚫 Clear cart"
+msgstr "🚫 Очистить корзину"
+
+#: keyboards/inline/cart_keyboard.py:22
+msgid "📤 Place Order"
+msgstr "📤 Оформить Заказ"
+
+#: keyboards/inline/categories_keyboard.py:11
+msgid "🏪 All products"
+msgstr "🏪 Все продукты"
+
+#: keyboards/inline/categories_keyboard.py:15
+msgid "🛒 Cart"
+msgstr "🛒 Корзина"
+
+#: keyboards/inline/categories_keyboard.py:21
+msgid "👚 Shirts/Blouses"
+msgstr "👚 Рубашки/Блузки"
+
+#: keyboards/inline/categories_keyboard.py:25
+msgid "👗 Dresses"
+msgstr "👗 Платья"
+
+#: keyboards/inline/categories_keyboard.py:31
+msgid "🥻 Sundresses"
+msgstr "🥻 Сарафаны"
+
+#: keyboards/inline/categories_keyboard.py:35
+msgid "👖 Trousers"
+msgstr "👖 Брюки"
+
+#: keyboards/inline/categories_keyboard.py:41
+msgid "🩳 Skirts"
+msgstr "🩳 Юбки"
+
+#: keyboards/inline/categories_keyboard.py:45
+msgid "📦 Other"
+msgstr "📦 Другое"
+
+#: keyboards/inline/item_keyboard.py:11
+#: keyboards/inline/quantity_keyboard.py:26
+msgid "📥 Add to Cart"
+msgstr "📥 Добавить в корзину"
+
+#: keyboards/inline/item_keyboard.py:15
+msgid "🔙 Back to Menu"
+msgstr "🔙 Вернуться в Меню"
+
+#: keyboards/inline/payment_keyboard.py:8
+msgid "💵 Cash"
+msgstr "💵 Наличные"
 

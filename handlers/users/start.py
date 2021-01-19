@@ -1,5 +1,9 @@
 import re
 
+from aiogram.dispatcher import FSMContext
+
+from handlers.users.main_menu import show_menu
+from keyboards.default import get_main_menu_keyboard
 from states import states
 from geopy.geocoders import Nominatim
 
@@ -7,7 +11,7 @@ from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.types import CallbackQuery, Message
 
-from keyboards.default import menu_keyboard
+from states.states import Menu
 from utils.db_api import db_commands
 
 from loader import dp, _, bot
@@ -18,10 +22,18 @@ from data.config import admins
 db = db_commands.DBCommands()
 
 
-@dp.message_handler(CommandStart())
-async def register_user(message: Message):
+@dp.message_handler(CommandStart(), state="*")
+async def register_user(message: Message, state: FSMContext):
+    await state.reset_state()
+
     chat_id = message.from_user.id
     referral = message.get_args()
+    user_exists = await db.user_exists(chat_id)
+
+    if user_exists:
+        await show_menu(message)
+        return
+
     user = await db.add_new_user(referral=referral)
     id = user.id
     bot_username = (await bot.me).username
@@ -31,26 +43,22 @@ async def register_user(message: Message):
     languages_markup = types.InlineKeyboardMarkup(
         inline_keyboard=[
             [types.InlineKeyboardButton(
-                text="English",
+                text="🇺🇸 English",
                 callback_data="lang_en")],
             [types.InlineKeyboardButton(
-                text="Русский",
+                text="🇷🇺 Русский",
                 callback_data="lang_ru")],
             [types.InlineKeyboardButton(
-                text="O'zbek tili",
+                text="🇺🇿 O'zbek tili",
                 callback_data="lang_uz")]
         ]
     )
 
     text = """
 Здраствуйте! Для начала выберите удобный вам язык!\n\n
-Salom! Avvalam sizga qulay tilni tallang!\n\n
-Hello there! First of all, choose a comfortable language!\n\n
+Salom! O'zingizga qulay tilni tanlang!\n\n
+Hello, Dear! First, choose a language!\n\n
     """
-    if chat_id == admins:
-        text += _("\n\n"
-                  "Add new item: /add_item\n"
-                  "There are {count_users} users in the DB right now.").format(count_users=count_users)
 
     await message.answer(text, reply_markup=languages_markup)
 
@@ -60,7 +68,9 @@ async def change_language(call: CallbackQuery):
     await call.message.edit_reply_markup()
     lang = call.data[-2:]
     await db.set_language(lang)
-    await call.message.answer(_("Great! Get started by pressing /menu", locale=lang))
+    await call.message.answer(_("Thank you! Here's our Main Menu", locale=lang), reply_markup=get_main_menu_keyboard(lang))
+
+    await Menu.Main_Menu.set()
 
 
 # @rate_limit(3)

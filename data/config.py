@@ -7,9 +7,11 @@ load_dotenv()
 
 BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
 
-admins = [os.getenv("ADMIN_ID")]
+admins = os.getenv("ADMIN_ID").split(",")
 
+allowed_users = [
 
+]
 
 PG_USER = str(os.getenv("PGUSER"))
 PG_PASS = str(os.getenv("PGPASSWORD"))

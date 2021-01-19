@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-26 20:00+0500\n"
+"POT-Creation-Date: 2020-12-23 20:02+0500\n"
 "PO-Revision-Date: 2020-11-26 20:04+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -18,184 +18,368 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: admin_panel.py:14
-msgid "You canceled your order"
-msgstr "Siz buyurtmani bekor qildingiz"
-
-#: admin_panel.py:20
-msgid "Enter the item's name or press /cancel"
-msgstr "Mahsulot nomini kiriting yoki /cancel ni bosing"
-
-#: admin_panel.py:29
+#: handlers/category_menu.py:78
 msgid ""
-"Name: {name}\n"
-"Send me the photo or press /cancel"
-msgstr ""
-"Nomi: {name}\n"
-"Menga mahsulot suratini yuboring yoki /cancel ni bosing"
-
-#: admin_panel.py:45
-msgid ""
-"Name: {name}\n"
-" Send me the price of the product or press /cancel"
-msgstr ""
-"Nomi: {name}\n"
-"Mahsulot narxini kiriting yoki /cancel ni bosing"
-
-#: admin_panel.py:61
-msgid "Invalid input, enter a number"
-msgstr "Xato harakat, raqamni kiriting"
-
-#: admin_panel.py:68
-msgid "Yes"
-msgstr "Xa"
-
-#: admin_panel.py:71
-msgid "Enter Again"
-msgstr "Qaytadan kiriting"
-
-#: admin_panel.py:77
-msgid ""
-"Price: {price:,}\n"
-"Confirm? Press /cancel to cancel"
-msgstr ""
-"Narx: {price:,}\n"
-"Tasdiqlaysizmi? Bekor qilish uchun /cancel ni bosing"
-
-#: admin_panel.py:92
-msgid "Enter the price again"
-msgstr "Narxni qaytadan kiriting"
-
-#: admin_panel.py:104
-msgid "The product was successfully created."
-msgstr "Mahsulot muvaffaqiyat bilan yaratildi"
-
-#: admin_panel.py:110
-msgid "Send the text of mailing"
-msgstr "Yoborish matnnini kiriting"
-
-#: admin_panel.py:133
-msgid ""
-"Choose a language\n"
+"<b>{name}</b>\n"
 "\n"
-"Text:\n"
-"{text}"
-msgstr ""
-"Kerakli tilni tanlang\n"
+"<b>Price:</b> {price} UZS \n"
+"<b>Sizes:</b> {available_sizes} \n"
 "\n"
-"Matn:\n"
-"{text}"
+"For all related questions text @g_continent\n"
+"\n"
+msgstr ""
+"<b>{name}</b>\n"
+"\n"
+"<b>Narxi:</b> {price} UZS \n"
+"<b>O'lchamlar:</b> {available_sizes} \n"
+"\n"
+"Barcha savollarga javoblar quyidagi manzilda @g_continent\n"
+"\n"
 
-#: admin_panel.py:155
-msgid "Mailing Completed"
-msgstr "Yuborish yakunlandi"
+#: handlers/category_menu.py:166
+msgid "Product with same size already exists in the cart"
+msgstr "Ayni o'lchamli mahsulot savatda mavjud"
 
-#: handlers/users/main_handlers.py:45
+#: handlers/category_menu.py:211
+msgid "Item's number should be greater than 0"
+msgstr "Mahsulot soni 0 dan yuqori bo'lishi shart"
+
+#: handlers/category_menu.py:215
+msgid "Item has been added to cart"
+msgstr "Mahsulot savatga joylandi"
+
+#: handlers/category_menu.py:239
+msgid "Your cart is empty"
+msgstr "Savatingiz bo'sh"
+
+#: handlers/category_menu.py:244
 msgid ""
-"Greetings!\n"
-"There are {count_users} users right now in our DB\n"
+"<i>Your Cart:</i>\n"
 "\n"
-"Your referral link: {bot_link}\n"
-"Check your referrals by pressing /referrals\n"
-"View items: /items"
 msgstr ""
-"Salom!\n"
-"Hozirda bazada {count_users} foydalanuvchi mavjud\n"
+"<i>Savatingiz:</i>\n"
 "\n"
-"Sizning referal ishorangiz: {bot_link}\n"
-"Referallaringizni /referrals ni bosib tekshiring\n"
-"Mahsulotlarni ko'rish: /items"
 
+#: handlers/category_menu.py:251
+msgid "<b>{index}.</b> {name} - <b>{size}</b>\n"
+msgstr ""
 
-#: handlers/users/main_handlers.py:55
+#: handlers/category_menu.py:255
+msgid "<b>Total</b>: {total} UZS"
+msgstr "<b>Jami</b>: {total} UZS"
+
+#: handlers/category_menu.py:281 handlers/category_menu.py:292
+msgid "Categories Menu:"
+msgstr "Mahsulotlar turlari ro'yxati"
+
+#: handlers/category_menu.py:306
+msgid "Leave your contact number so we can contact you regarding your order"
+msgstr "Buyurtmangiz bo'yicha bog'lanish uchun telefon raqamingizni qoldiring"
+
+#: handlers/category_menu.py:317 handlers/category_menu.py:327
+msgid "Share your current location for the shipping address"
+msgstr "Mahsulotni yetkazish uchun hozirgi manzilingiz joylashuvini yuboring"
+
+#: handlers/category_menu.py:345 handlers/category_menu.py:506
+msgid "<i>Order cancelled</i>"
+msgstr "<i>Buyurtma bekor qilindi</i>"
+
+#: handlers/category_menu.py:352
 msgid ""
+"Select payment method\n"
 "\n"
-"Add new item: /add_item"
+"<i>*Delivery fee not included</i>"
 msgstr ""
+"To'lov usulini tanlang\n"
 "\n"
-"Yangi mahsulotni qo'shish: /add_item"
+"<i>*Yetkazib berish narxi kiritilmagan</i>"
 
-#: handlers/users/main_handlers.py:66
-msgid "Your language has been changed"
-msgstr "Sizning tilingiz o'zgardi"
-
-#: handlers/users/main_handlers.py:72
+#: handlers/category_menu.py:386
 msgid ""
-"Your referrals:\n"
-"{referrals}"
+"<i>Thank you, your order has been submitted for processing! Our operators"
+" will contact you shortly</i>"
 msgstr ""
-"Sizning referallaringiz:\n"
-"{referrals}"
+"<i>Rahmat, buyurtmangiz tayyorlanish jarayonida, bizning operatorlarimiz"
+" qisqa muddatda siz bilan bog'lanadi</i>"
 
-#: handlers/users/main_handlers.py:80
+#: handlers/category_menu.py:409
 msgid ""
-"<b>Item:</b \t№{id}: <u>{name}</u>\n"
-"<b>Price:</b> \t{price:,}\n"
-msgstr ""
-"<b>Mahsulot:</b \t№{id}: <u>{name}</u>\n"
-"<b>Narx:</b> \t{price:,}\n"
-
-#: handlers/users/main_handlers.py:87
-msgid "Buy"
-msgstr "Xarid qilish"
-
-#: handlers/users/main_handlers.py:110
-msgid "This item doesnt exists"
-msgstr "Ushbu mahsulot mavjud emas"
-
-#: handlers/users/main_handlers.py:113
-msgid ""
-"Do you want to but item \"<b>{name}{/b}\" with the price <i>{price:,}</i>"
+"<b>Order Number</b>: #N{order_id}\n"
 "\n"
-"Enter the quantity of the item you would like to buy or press cancel"
+"Credit card number for transferring:\n"
+"<b>8600 3129 4618 7313</b>"
 msgstr ""
-"Siz \"<b>{name}{/b}\" mahsulotini <i>{price:,}</i> narxda sotib olmoqchimisiz?"
+"<b>Buyurtma Raqami</b>: #N{order_id}\n"
 "\n"
-"Sotib olmoqchi bo'lgan mahsulotingiz miqdorini kiriting yoki /cancel ni bosing"
+"To'lov uchun kredit karta raqami:\n"
+"<b>8600 3129 4618 7313</b>"
 
-#: handlers/users/main_handlers.py:141
-msgid "Agree"
-msgstr "Roziman"
-
-#: handlers/users/main_handlers.py:145
-msgid "Change the quantity"
-msgstr "Miqdorni o'zgartirish"
-
-#: handlers/users/main_handlers.py:149
-msgid "Cancel purchase"
-msgstr "Xaridni bekor qilish"
-
-#: handlers/users/main_handlers.py:162
+#: handlers/category_menu.py:413
 msgid ""
-"Okay, you want to buy <i>{quantity}</i> {name} with price "
-"<b>{price:,}</b>\n"
-"Total price: <b>{amount:,}</b>. Confirm?"
+"<b>Order Number</b>: #N{order_id}\n"
+"\n"
+"Your order has been confirmed."
 msgstr ""
-"Yaxshi, siz <i>{quantity}</i> miqdordagi {name} mahsulotni"
-"<b>{price:,}</b>\n narxda sotib olmoqchisiz"
-"Umumiy narx: <b>{amount:,}</b>. Tasdiqlaysizmi?"
+"<b>Buyurtma Raqami</b>: #N{order_id}\n"
+"\n"
+"Buyurtmangiz tasdiqlandi."
 
-#: handlers/users/main_handlers.py:177
-msgid "Wrong Input, enter a number"
-msgstr "Xato harakat, raqamni kiriting"
+#: handlers/category_menu.py:423
+msgid "<b>Your order has been cancelled</b>"
+msgstr "<b>Buyurtmangiz bekor qilindi</b>"
 
-#: handlers/users/main_handlers.py:183
-msgid "Purchase Canceled."
-msgstr "Xarid bekor qilindi"
+#: handlers/category_menu.py:440
+msgid "<b>Your payment has been approved</b>"
+msgstr "<b>To'lovingiz qabul qilindi</b>"
 
-#: handlers/users/main_handlers.py:190
-msgid "Enter the quantity again."
-msgstr "Miqdorni qaytadan kiriting"
+#: handlers/users/main_menu.py:48 handlers/users/main_menu.py:50
+msgid "Main Menu"
+msgstr "Bosh Menyu"
 
-#: handlers/users/main_handlers.py:203
-msgid "Okay, pay <b>{amount:,}</b> by the method below and press the button below"
-msgstr "Yaxshi, quydagi tugmani bosing va <b>{amount:,}</b> mablag'ni to'lang"
+#: handlers/users/main_menu.py:64
+msgid "Great! Where do we start?"
+msgstr "Zo'r! Qaysi biridan boshlaymiz?"
 
-#: handlers/users/main_handlers.py:249
-msgid "Thank you for your purchase"
-msgstr "Xarid uchun rahmat"
+#: handlers/users/main_menu.py:66
+msgid "Categories Menu"
+msgstr "Mahsulotlar turlari ro'yxati"
 
-#: handlers/users/main_handlers.py:252
-msgid "Purchase failed, try again later.."
-msgstr "Xarid amalga oshmadi, keyinroq takrorlang.."
+#: handlers/users/main_menu.py:76
+msgid "Available commands:\n"
+msgstr "Mavjud komandalar"
 
+#: handlers/users/main_menu.py:77
+msgid "/start - Start the <b>MustHave Official's</b> Bot"
+msgstr "/start - <b>MustHave Official's</b> ning Botini boshlash"
+
+#: handlers/users/main_menu.py:78
+msgid "/menu - Main Menu"
+msgstr "/menu - Bosh Menyu"
+
+#: handlers/users/main_menu.py:95
+msgid "What do you want to know about us?"
+msgstr "Biz haqimizda nima bilishni xohlaysiz?"
+
+#: handlers/users/main_menu.py:104
+msgid ""
+"We will be thankful if you will help our services improve!\n"
+"Leave your feedback or rate us on a 5-point scale!"
+msgstr ""
+"Xizmatlarimizning yaxshilanishiga yordam bersangiz minnatdor bo'lamiz!\n"
+"Munosabatingizni bildiring yoki xizmatlarimizni 5-balli tizim bilan baholang!"
+
+#: handlers/users/main_menu.py:114
+msgid "Settings Menu:"
+msgstr "Sozlamalar Menyusi"
+
+#: handlers/users/main_menu.py:126
+msgid ""
+"Location information:\n"
+"\n"
+"<b>📍 Address:</b> Tashkent, Mirabad District, Avliyoota Street, 2\n"
+"\n"
+"<b>🗺 Reference Point:</b> Mirabad (Hospital) Bazaar, near to \"Мисс "
+"Камилла\" wedding salon. Store \"Molly\"\n"
+"\n"
+"<b>🕓 We work 7 days a week </b>\n"
+"\n"
+"<b>💸 Payment Methods:</b>\n"
+"1. Cash\n"
+"2. Click\n"
+"3. PayMe\n"
+"4. Apelsin"
+msgstr ""
+"Joylashuv haqida ma'lumot:\n"
+"\n"
+"<b>📍 Manzil:</b> Toshkent sh., Mirobod tumani, Avliyoota ko'chasi, 2\n"
+"\n"
+"<b>🗺 Mo'ljal:</b> Mirobod (Gospitalniy) bozori,\"Мисс "
+"Камилла\" to'y saloni yaqinida.\"Molly\" magazini\n"
+"\n"
+"<b>🕓 Biz dam olishsiz ishlaymiz </b>\n"
+"\n"
+"<b>💸 To'lov usullari:</b>\n"
+"1. Naqd\n"
+"2. Click\n"
+"3. PayMe\n"
+"4. Apelsin"
+
+#: handlers/users/main_menu.py:143
+msgid ""
+"Contact information:\n"
+"\n"
+"📞 Phone Number #1\n"
+"+998(99) 842-67-09\n"
+"\n"
+"📞 Phone Number #2\n"
+"+998(97) 768-68-49\n"
+"\n"
+"<b>📲 Telegram:</b> \n"
+"@musthaveuzb\n"
+"\n"
+"<b>📲 Instagram:</b> \n"
+"https://www.instagram.com/musthave.uz/"
+msgstr ""
+"Bog'lanish uchun ma'lumot:\n"
+"\n"
+"📞 Telefon raqami #1\n"
+"+998(99) 842-67-09\n"
+"\n"
+"📞 Telefon raqami #2\n"
+"+998(97) 768-68-49\n"
+"\n"
+"<b>📲 Telegram:</b> \n"
+"@musthaveuzb\n"
+"\n"
+"<b>📲 Instagram:</b> \n"
+"https://www.instagram.com/musthave.uz/"
+
+#: handlers/users/main_menu.py:157
+msgid "Thank you for your response!"
+msgstr "Munosabat bildirganingiz uchun tashakkur!"
+
+#: handlers/users/main_menu.py:166 keyboards/default/about_keyboard.py:15
+#: keyboards/default/contact_keybaord.py:13
+#: keyboards/default/feedback_keyboard.py:24
+#: keyboards/default/language_keyboard.py:18
+#: keyboards/default/settings_keyboard.py:18
+#: keyboards/inline/cart_keyboard.py:20
+#: keyboards/inline/categories_keyboard.py:51
+#: keyboards/inline/quantity_keyboard.py:22
+#: keyboards/inline/size_keyboard.py:29
+msgid "🔙 Back"
+msgstr "🔙 Ortga"
+
+#: handlers/users/main_menu.py:169
+msgid "Enter your new name"
+msgstr "Yangi ism kiriting"
+
+#: handlers/users/main_menu.py:178
+msgid "Your name has been changed!"
+msgstr "Ismingiz o'zgartirildi"
+
+#: handlers/users/main_menu.py:187
+msgid "Enter your new phone number"
+msgstr "Yangi telefon raqamingizni kiriting"
+
+#: handlers/users/main_menu.py:196 handlers/users/main_menu.py:206
+msgid "Your phone number has been changed!"
+msgstr "Telefon raqamingiz o'zgartirildi"
+
+#: handlers/users/main_menu.py:215
+msgid "Choose the language"
+msgstr "Tilni tanlang"
+
+#: handlers/users/main_menu.py:223 handlers/users/main_menu.py:231
+#: handlers/users/main_menu.py:239
+msgid "Great! Your language has been changed"
+msgstr "Zo'r! Tilingiz o'zgartirildi"
+
+#: handlers/users/start.py:71
+msgid "Thank you! Here's our Main Menu"
+msgstr "Rahmat! Bizning bosh menyu"
+
+#: keyboards/default/about_keyboard.py:9
+msgid "📍 Shop's Location"
+msgstr "📍 Magazinimiz joylashuvi"
+
+#: keyboards/default/about_keyboard.py:12
+msgid "📱 Contacts"
+msgstr "📱 Bog'lanish ma'lumotlari"
+
+#: keyboards/default/contact_keybaord.py:9
+msgid "📱 Share Phone Number"
+msgstr "📱 Telefon raqamini yuborish"
+
+#: keyboards/default/location_keyboard.py:7
+msgid "📍 Share Current Location"
+msgstr "📍 Hozirgi manzilni yuborish"
+
+#: keyboards/default/location_keyboard.py:11
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+#: keyboards/default/menu_keyboards.py:11
+msgid "🛍 Shop"
+msgstr "🛍 Magazin"
+
+#: keyboards/default/menu_keyboards.py:14
+msgid "🗣 Feedback"
+msgstr "🗣 Munosabat bildirish"
+
+#: keyboards/default/menu_keyboards.py:15
+msgid "ℹ About"
+msgstr "ℹ Biz haqimizda"
+
+#: keyboards/default/menu_keyboards.py:18
+msgid "❗ Help"
+msgstr "❗ Yordam"
+
+#: keyboards/default/menu_keyboards.py:19
+msgid "⚙ Settings"
+msgstr "⚙ Sozlamalar"
+
+#: keyboards/default/settings_keyboard.py:9
+msgid "🔄 Change Language"
+msgstr "🔄 Tilni o'zgartirish"
+
+#: keyboards/default/settings_keyboard.py:12
+msgid "✍️ Edit Name"
+msgstr "✍️ Ismni o'zgartirish"
+
+#: keyboards/default/settings_keyboard.py:15
+msgid "✍️ Edit Phone Number"
+msgstr "✍️ Telefon raqamini o'zgartirish"
+
+#: keyboards/inline/cart_keyboard.py:18
+msgid "🚫 Clear cart"
+msgstr "🚫 Savatni tozalash"
+
+#: keyboards/inline/cart_keyboard.py:22
+msgid "📤 Place Order"
+msgstr "📤 Buyurtma qilish"
+
+#: keyboards/inline/categories_keyboard.py:11
+msgid "🏪 All products"
+msgstr "🏪 Barcha mahsulotlar"
+
+#: keyboards/inline/categories_keyboard.py:15
+msgid "🛒 Cart"
+msgstr "🛒 Savat"
+
+#: keyboards/inline/categories_keyboard.py:21
+msgid "👚 Shirts/Blouses"
+msgstr "👚 Ko'ylaklar/Bluzkalar"
+
+#: keyboards/inline/categories_keyboard.py:25
+msgid "👗 Dresses"
+msgstr "👗 Liboslar"
+
+#: keyboards/inline/categories_keyboard.py:31
+msgid "🥻 Sundresses"
+msgstr "🥻 Sarafanlar"
+
+#: keyboards/inline/categories_keyboard.py:35
+msgid "👖 Trousers"
+msgstr "👖 Shimlar"
+
+#: keyboards/inline/categories_keyboard.py:41
+msgid "🩳 Skirts"
+msgstr "🩳 Yubkalar"
+
+#: keyboards/inline/categories_keyboard.py:45
+msgid "📦 Other"
+msgstr "📦 Boshqalar"
+
+#: keyboards/inline/item_keyboard.py:11
+#: keyboards/inline/quantity_keyboard.py:26
+msgid "📥 Add to Cart"
+msgstr "📥 Savatga qo'shish"
+
+#: keyboards/inline/item_keyboard.py:15
+msgid "🔙 Back to Menu"
+msgstr "🔙 Menyuga qaytish"
+
+#: keyboards/inline/payment_keyboard.py:8
+msgid "💵 Cash"
+msgstr "💵 Naqd"

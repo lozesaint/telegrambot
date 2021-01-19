@@ -2,12 +2,14 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from loader import _
 
 
-def get_contact_keyboard(lang):
-    contact_keyboard = ReplyKeyboardMarkup(
+def get_about_keyboard(lang):
+    about_keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text=_("📱 Share Phone Number", locale=lang),
-                               request_contact=True)
+                KeyboardButton(text=_("📍 Shop's Location", locale=lang))
+            ],
+            [
+                KeyboardButton(text=_("📱 Contacts", locale=lang)),
             ],
             [
                 KeyboardButton(text=_("🔙 Back", locale=lang))
@@ -16,4 +18,4 @@ def get_contact_keyboard(lang):
         resize_keyboard=True
     )
 
-    return contact_keyboard
+    return about_keyboard
